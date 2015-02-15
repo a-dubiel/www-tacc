@@ -1,0 +1,13 @@
+{
+  "name": "grunt-boilerplate",
+  "version": "0.0.1",
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "jquery": "~1.11.2"
+  },
+  "exportsOverride": {
+    "modernizr": {
+      "modernizr": "./modernizr.js"
+    }
+  }
+}
