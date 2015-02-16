@@ -5,7 +5,7 @@ exports.task = {
       layout: 'byType',
       install: true,
       verbose: false,
-      cleanTargetDir: true,
+      cleanTargetDir: false,
       cleanBowerDir: true,
       bowerOptions: {}
     }

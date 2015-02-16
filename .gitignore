@@ -19,6 +19,7 @@ node_modules
 
 ## Bower
 source/components
+bower_components
 
 ## Sass
 .sass-cache
