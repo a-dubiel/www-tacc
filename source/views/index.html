@@ -6,11 +6,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>tACC</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="scripts/components/modernizr.min.js"></script> 
-        <link rel="stylesheet" href="styles/app.min.css">
+        <script src="//use.typekit.net/rhk2wub.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+        <link rel="stylesheet" href="styles/app.min.css">      
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -18,25 +20,42 @@
         <![endif]-->
 
         <header class="header" role="banner">
-          <div class="logo">
-            <a href="/">Logo</a>
+          <div class="container">
+            <nav class="nav" role="navigation">
+                <ul>
+                    <li class="visible-xs"><span>Main Menu</span></li>
+                    <li><a href="">Building bonds</a></li>
+                    <li><a href="">Clients</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Abouts Us</a></li>
+                    <li><a class="btn-contact" href="">Contact Us</a></li>
+                </ul> 
+            </nav>
+            <div class="nav-mobile pull-right">
+            <a href="#" class="nav-mobile-trigger"><span></span></a> 
+            </div>
+            <div class="logo pull-left">
+                <h1><a href="/"><img src="images/logo.svg" alt="The Affective Computing Company"></a></h1>
+            </div>
+ 
           </div>
-          <nav class="nav" role="navigation">
-            Navigation
-          </nav>
         </header>
 
         <main class="main" role="main">
-            Content
+            <div class="hero">
+     
+                    <div class="caption">
+                        <h2>Human to Human Platform</h2>
+                        <p>As we build bonds with other people, our interactions become natural, open, and honest. Stop surveying. Start interacting.</p>
+                        <a href="#" class="btn btn-lg btn-default">Learn more</a>
+                        <a href="#" class="btn btn-lg btn-info-inverted"><i class="fa fa-video-camera"></i> Watch video</a>
+                    </div>
+ 
+            </div>
+            
         </main>
 
-        <aside class="sidebar" role="complementary">
-            Sidebar
-        </aside>
-
-        <footer class="footer" role="contentinfo">
-            Footer
-        </footer>
+        
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

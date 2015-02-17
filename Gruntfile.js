@@ -15,6 +15,7 @@ module.exports = function(grunt) {
       images      : 'images',
       scripts     : 'scripts',
       styles      : 'styles',
+      fonts       : 'fonts',
       views       : 'views', 
       components  : 'components',
       misc        : 'misc'

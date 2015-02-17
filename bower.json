@@ -4,7 +4,8 @@
   "dependencies": {
     "modernizr": "~2.8.3",
     "jquery": "~1.11.2",
-    "bootstrap-less": "*"
+    "bootstrap-less": "*",
+    "font-awesome-less": "*"
   },
   "exportsOverride": {
     "modernizr": {
@@ -12,9 +13,9 @@
     },
     "bootstrap-less": {
       "bootstrap": "./less"
+    },
+    "font-awesome-less": {
+      "font-awesome": "."
     }
-  },
-  "ignoredDependencies": [
-      "bootstrap"
-  ]
+  }
 }
