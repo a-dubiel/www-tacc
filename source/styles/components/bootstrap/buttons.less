@@ -34,6 +34,10 @@
     text-decoration: none;
   }
 
+  &:hover {
+    .transition(all 0.3s ease-in-out);
+  }
+
   &:active,
   &.active {
     outline: 0;
@@ -79,6 +83,10 @@
 
 .btn-info-inverted {
   .button-variant(#fff; transparent; #fff);
+
+  &:hover {
+    background: rgba(255,255,255,0.2);
+  }
 }
 
 

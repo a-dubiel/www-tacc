@@ -1,6 +1,8 @@
-/* Main Nav **/
+/* 
+ * Main Nav
+ */
 
-.logo h1 {
+ .logo h1 {
   margin:10px 0 0 0;
   padding:0;
 
@@ -12,44 +14,44 @@
 .nav {
   display:none;
 
+  @media (max-width: @screen-sm-min) {
+    &.show {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(38,166,91,0.9); 
+      z-index: 1;
+      backface-visibility: hidden;
 
-   @media (max-width: @screen-sm-min) {
-      &.show {
-        position: absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background: rgba(0,0,0,0.8);
-        z-index: 1;
 
+      ul {
+        margin:20px 0px 0px 20px;
+        padding:0;
+      }
 
-        ul {
-          margin:20px 0px 0px 20px;
-          padding:0;
-        }
+      a {
+        font-size:24px;
+        color:#fff;
+        font-weight: 700;
+        line-height:1.1;
 
-        a {
-          font-size:24px;
-          color:#fff;
-          font-weight: 700;
-          line-height:1.1;
-
-          &:hover {
-            text-decoration: none;
-          }
-        }
-
-        span {
-          font-size:24px;
-          text-transform: uppercase;
-          color:#fff;
-          font-weight: 700;
-          line-height:1.1;
-          color:@gray-light;
+        &:hover {
+          text-decoration: none;
         }
       }
-   }
+
+      span {
+        font-size:24px;
+        text-transform: uppercase;
+        color:#fff;
+        font-weight: 700;
+        line-height:1.1;
+        color:rgba(255,255,255,0.5);
+      }
+    }
+  }
 
   @media (min-width: @screen-sm-min) {
     display:block;
@@ -70,7 +72,7 @@
   @media (min-width: @screen-sm-min) {
     display:inline;
     margin-right:30px;
- 
+    
     &:last-child {
       margin-right:0;
     }
@@ -106,8 +108,8 @@
 
 .nav-mobile {
   display:block;
-  position: absolute;
-  top:0;
+  position: fixed;
+  top:5px;
   right:20px;
   z-index:2;
   @media (min-width: @screen-sm-min) {
@@ -175,12 +177,15 @@
   transition-delay: 0, .2s;
 }
 
-/* Hero */
+/* 
+ * Hero
+ */
 
-.hero {
+ .hero {
   margin-top:20px;
-  background: @gray-lighter;  
+  background: @gray;  
   width:100%;
+  background-size:cover;
   height:250px;
   @media (min-width: @screen-sm-min) {
     height:400px;
@@ -200,24 +205,348 @@
   text-align: center;
 
   h2 {
+    color: #fff;
     @media (min-width: @screen-sm-min) {
       font-size:64px;
     }
   }
 
   p {
+    color:#fff;
     padding:0 20px;
     margin-bottom:20px;
     @media (min-width: @screen-sm-min) {
-        font-size:18px;
-        padding:0 100px;
+      font-size:24px;
+      padding:0 100px;
     }
 
     @media (min-width: @screen-md-min) {
-        padding:0 250px;
+      padding:0 250px;
     }
 
   }
 }
+
+/* 
+ * Clients 
+ */
+
+ .section {
+  padding:10px 0;
+  @media (min-width: @screen-sm-min) {
+    padding:40px 0;
+  }
+
+  &.section-gray {
+    background-color: @section-gray-bg;
+  }
+
+  &.section-products {
+    padding-bottom:0;
+  }
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom:20px;
+  @media (min-width: @screen-sm-min) {
+    width:740px;
+    margin:0 auto 40px;
+  }
+
+  @media (min-width: @screen-md-min) {
+    width:800px;
+  }
+
+  h3 {
+    font-size:24px;
+    @media (min-width: @screen-sm-min) {
+      font-size:30px;
+      margin-bottom:15px;
+    }
+  }
+
+  p {
+    margin-bottom:0;
+    @media (min-width: @screen-sm-min) {
+      padding:0 85px;
+      font-size:18px;
+    }
+  }
+}
+
+.watch-video {
+  display:block;
+  text-indent: -9999px;
+  background-image: url('../images/devices.png');
+  width:300px;
+  height:176px;
+  background-size:300px 176px;
+  margin: 0 auto;
+  .transition(transform 0.3s ease-in-out);
+  
+  @media (min-width: @screen-sm-min) { 
+    width:700px;
+    height:410px;
+    background-size:700px 410px;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    background-image: url('../images/devices@2x.png');
+  }
+
+  &:hover {
+    transform:scale(1.01);
+
+  }
+  
+}
+
+.product {
+  text-align:center;
+  @media (max-width: @screen-sm-min) { 
+    border-bottom:1px solid darken(@section-gray-bg, 5%);
+    padding-top:20px;
+  }
+
+  h5 {
+    font-weight:400;
+    margin-bottom:10px;
+    font-size:18px;
+  }
+
+  a {
+    color: @heading-color;
+    text-transform: uppercase;
+    font-weight: 400;
+    .transition(color 0.3s ease-in-out);
+
+    &:hover {
+      text-decoration: none;
+      color: @brand-primary;
+
+    }
+  }
+
+  .fa {
+    margin-right:3px;
+  }
+}
+
+.iphone {
+  width:280px;
+  height:240px;
+  background-size:280px 240px;
+  margin:20px auto 0;
+}
+
+.iphone-thrive {
+  background-image: url('../images/iphone-thrive.png');
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    background-image: url('../images/iphone-thrive@2x.png');
+  }
+}
+
+.iphone-emotive {
+  background-image: url('../images/iphone-emotive.png');
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    background-image: url('../images/iphone-emotive@2x.png');
+  }
+}
+
+/* 
+ * Clients
+ */
+
+ .clients {
+  text-align: center;
+}
+
+.client {
+  width:150px;
+  height:130px;
+  display:inline-block;
+  position: relative;
+  overflow:hidden;
+  opacity:1;
+  .transition(all 0.2s ease-in);
+
+  @media (min-width: @screen-sm-min) { 
+    cursor: help;
+    opacity:0.5;
+    
+    &:hover {
+      overflow:visible;
+      opacity:1;
+      .client-tooltip {
+        opacity:1;
+        transform: translateY(0px);
+      }
+
+    }
+  }
+  
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    background-size:150px 150px;
+  }
+}
+
+.client-tooltip {
+  background-color:@brand-primary;
+  width:340px;
+  height:auto;
+  text-align: left;
+  color:#fff;
+  padding:20px;
+  position: absolute;
+  bottom:140px;
+  left:-95px;
+  opacity:0;
+  .transition(all 0.2s ease-in);
+  transform: translateY(-20px);
+  z-index:1;
+
+  &:after {
+    content:'';
+    display:block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 6px 0 6px;
+    border-color: @brand-primary transparent transparent transparent;
+    transform:rotate(360deg);
+    position: absolute;
+    bottom:-12px;
+    left:50%;
+    margin-left:-6px;
+  }
+
+  p {
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom:5px;
+  }
+
+  ul {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    list-style-position: outside;
+
+  }
+
+  li {
+    line-height: 1.3;
+    margin-left:1.5em;
+    position: relative;
+  }
+
+  .fa {
+    position: absolute;
+    left:-1.5em;
+  }
+}
+
+/* Client Logos */
+
+.client-bayer {
+  background-image: url('../images/clients-bayer-logo.png');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+   background-image: url('../images/clients-bayer-logo@2x.png');
+ }
+}
+
+.client-truesense {
+  background-image: url('../images/clients-truesense-logo.png');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+   background-image: url('../images/clients-truesense-logo@2x.png');
+ }
+}
+
+.client-philips {
+  background-image: url('../images/clients-philips-logo.png');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+   background-image: url('../images/clients-philips-logo@2x.png');
+ }
+}
+
+.client-crowdcuring {
+  background-image: url('../images/clients-crowdcuring-logo.png');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+   background-image: url('../images/clients-crowdcuring-logo@2x.png');
+ }
+}
+
+.client-rodriguez {
+  background-image: url('../images/clients-rodriguez-logo.png');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+   background-image: url('../images/clients-rodriguez-logo@2x.png');
+ }
+}
+
+.client-reveal {
+  background-image: url('../images/clients-reveal-logo.png');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+   background-image: url('../images/clients-reveal-logo@2x.png');
+ }
+}
+
+/* 
+ * About
+ */
+
+.sub-title {
+  font-size:14px;
+  text-transform: uppercase;
+  font-weight:400;
+  margin-top:0;
+} 
+
+.about-icon {
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  border:1px solid @gray-lighter;  
+  margin: 10px auto;
+  text-align: center;
+  color: @brand-primary;
+  line-height: 45px;
+  font-size:18px;
+
+  @media (min-width: @screen-sm-min) { 
+    position: absolute;
+    top:0;
+    left:0;
+    margin:auto;
+  }  
+}
+
+.about-content {
+  text-align: center;
+  @media (min-width: @screen-sm-min) { 
+    padding-left:50px;
+    text-align: left;  
+  } 
+ 
+}
+
+.motto {
+  margin-top:40px;
+  text-align: center;
+  font-size:26px;
+  color: @heading-color;
+
+  small {
+    color:@text-color;
+    display:block;
+    font-size:14px;
+  }
+}
+
+
+
+
 
 

@@ -1,12 +1,13 @@
 /*
  * tacc-website
  * v. 0.0.1
- * Monday, February 16th, 2015, 2:42:25 PM
+ * Wednesday, February 18th, 2015, 5:13:51 PM
  * 
  * 2015 Andrzej Dubiel | http://adubiel.me/
  */
 
-$('.nav-mobile-trigger').click(function(){
+$('.nav-mobile-trigger').click(function(e){
+    e.preventDefault();
     $(this).toggleClass('active');
     $('nav').toggleClass('show');
 });
