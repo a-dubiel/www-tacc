@@ -7,7 +7,7 @@ exports.task = {
     files: [{
       expand: true,
       cwd: '<%= path.build %>/<%= path.scripts %>',
-      src: ['app.js', '<%= path.components %>/**/*.js'],
+      src: ['app.js'],
       dest: '<%= path.build %>/<%= path.scripts %>',
       ext: '.min.js',
     }]
