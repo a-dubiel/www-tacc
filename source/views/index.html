@@ -9,7 +9,10 @@
   <title>tACC</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com/">
+  <!--[if gt IE 8]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script> 
+  <![endif]-->
   <script src="//use.typekit.net/rhk2wub.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
   <link rel="stylesheet" href="styles/app.min.css">      
@@ -25,11 +28,11 @@
                 <nav class="nav" role="navigation">
                   <ul>
                     <li class="visible-xs"><span>Main Menu</span></li>
-                    <li><a href="">Building bonds</a></li>
-                    <li><a href="">Clients</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Abouts Us</a></li>
-                    <li><a class="btn-contact" href="">Contact Us</a></li>
+                    <li><a href="#building-bonds">Building bonds</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#about">Abouts Us</a></li>
+                    <li><a class="btn-contact" href="#contact-us">Contact Us</a></li>
                   </ul> 
                 </nav>
                 <div class="nav-mobile pull-right">
@@ -50,14 +53,14 @@
                 <div class="caption">
                   <h2>Human to Human Platform</h2>
                   <p>As we build bonds with other people, our interactions become natural, open, and honest. Stop surveying. Start interacting.</p>
-                  <a href="#" class="btn btn-lg btn-default add-right">Learn more</a>
-                  <a href="#" class="btn btn-lg btn-info-inverted"><i class="fa fa-video-camera"></i> Watch video</a>
+                  <a href="#products" class="btn btn-lg btn-default add-right">Learn more</a>
+                  <a href="#building-bonds" class="btn btn-lg btn-info-inverted"><i class="fa fa-video-camera"></i> Watch video</a>
                 </div>
               </section>
               <!-- /Hero -->
 
               <!-- Section -->
-              <section class="section">
+              <section class="section" id="building-bonds">
                 <div class="container">
                   <header class="section-intro">
                     <h3>Big data is old data. Start collecting honest data.</h3>
@@ -69,7 +72,7 @@
               <!-- /Section -->
 
               <!-- Section -->
-              <section class="section section-gray section-products">
+              <section class="section section-gray section-products" id="products">
                 <div class="container">
                  <header class="section-intro">
                   <h3>tACC Powered Products</h3>
@@ -94,7 +97,7 @@
             <!-- /Section -->
 
             <!-- Section -->
-            <section class="section">
+            <section class="section" id="clients">
               <div class="container">
                <header class="section-intro">
                 <h3>We help clients and their customers build bonds</h3>
@@ -183,7 +186,7 @@
           <!-- /Section -->
 
           <!-- Section -->
-          <section class="section">
+          <section class="section" id="about">
             <div class="container">
              <header class="section-intro">
               <h3>About tACC</h3>
@@ -366,9 +369,6 @@
                 <span class="date">2012-2013</span>
               </a>
 
-              
-
-              
             </div>
 
           </div>
@@ -383,7 +383,7 @@
       <!-- /Section -->
 
       <!-- Section -->
-      <section class="section">
+      <section class="section" id="contact">
         <div class="container">
          <header class="section-intro">
            <h3>We are tACC. It’s nice to meet you.</h3>
@@ -456,7 +456,7 @@
     </section>
     <!-- /Section -->
     <!-- Section -->
-    <section class="section section-brand">
+    <section class="section section-brand" id="contact-us">
       <div class="container container-relative">
         <div id="contact" class="contact-items cycle-slideshow" data-cycle-timeout="0" data-cycle-auto-height=container data-cycle-slides=".contact-item" data-cycle-next=".cycle-next-form" data-cycle-prev=".cycle-prev-form">
           <div class="contact-item">
@@ -545,9 +545,6 @@
 
 </main>
 <!-- /Content -->
-
-
-
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="scripts/components/jquery.min.js"><\/script>');</script>
