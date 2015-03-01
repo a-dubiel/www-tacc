@@ -1,7 +1,7 @@
 /*
  * tacc-website
  * v. 0.0.1
- * Saturday, February 28th, 2015, 4:33:15 PM
+ * Saturday, February 28th, 2015, 11:36:49 PM
  * 
  * 2015 Andrzej Dubiel | http://adubiel.me/
  */
@@ -19,6 +19,8 @@
 
     tacc.cache();
     tacc.bind();
+    tacc.animatePhones();
+    tacc.slideshows();
     tacc.showMap();
 
     }; // init()
@@ -31,7 +33,8 @@
       tacc.$navTrigger = $('.nav-mobile-trigger');
       tacc.$timeline = $('.timeline-wrap'); 
       tacc.$contactForm = $('.form-contact');
-      tacc.$contactSection = $('#contact');
+      tacc.$contactSection = $('.contact-items');
+      tacc.$teamSection = $('.cycle-team');
       tacc.$body = $('html, body');
       tacc.$timelineInt;
 
@@ -45,11 +48,11 @@
         tacc.$nav.toggleClass('show');
       });
 
-      tacc.$doc.on('touchstart mousedown', '[data-timeline]', function(){
+      tacc.$doc.on('touchstart mouseenter', '[data-timeline]', function(){
         tacc.animateTimeline($(this).data('timeline')); 
       });
 
-      tacc.$doc.on('touchend mouseup', '[data-timeline]', function(){
+      tacc.$doc.on('touchend mouseleave', '[data-timeline]', function(){
        tacc.animateTimeline(false); 
      });
 
@@ -88,17 +91,18 @@
             data: formData,
             success: function(data) {
               // go to thank you on success
-              tacc.$contactSection.cycle('goto', 3);
+              $('.contact-items').cycle('goto', 3);
             }
           }); 
         }
         else {
-          // go back to first form if validation fails
-          tacc.$contactSection.cycle('goto', 1);
+          // we need name and email - go back to first form if validation fails
+          $('.contact-items').cycle('goto', 1);
         }
       });
 
     }; //bind();
+
 
     Tacc.animateTimeline = function (direction) {
       if(direction) {
@@ -108,6 +112,32 @@
         clearInterval(tacc.$timelineInt);
       }
     }; // animateTimeline();
+
+    Tacc.slideshows = function () {
+      // contact section
+      tacc.$contactSection.cycle({
+        timeout: 0,
+        autoHeight: 'container',
+        slides: '.contact-item',
+        next: '.cycle-next-form',
+        prev: '.cycle-prev-form',
+        log: false
+      });
+
+      // team section
+      tacc.$teamSection.cycle({
+        timeout: 0,
+        slides: '.slide',
+        pager: '.cycle-pager',
+        log: false
+      });
+    };
+
+    Tacc.animatePhones = function () {
+
+      var s = skrollr.init({forceHeight: false});
+
+    }; //animatePhones()
 
     Tacc.showMap = function () {
 
@@ -126,7 +156,7 @@
             draggable: false,
 
             // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(40.4612861, -79.9233424), // New York
+            center: new google.maps.LatLng(40.4612861, -79.9233424), // 6101 Penn Ave, Pittsburgh, PA
 
             // How you would like to style the map. 
             // This is where you would paste any style found on Snazzy Maps.
@@ -161,7 +191,7 @@
 
     var matrix = matrixToArray(tacc.$timeline.css('transform')) ;
     var current = parseInt(matrix[4]);
-    var move = (direction === 'future') ? current -= 200 : current += 200;
+    var move = (direction === 'future') ? current -= 100 : current += 100;
 
     if(current > -150 && (tacc.$timeline.width() - tacc.$win.width() > current - 300)) { 
       tacc.$timeline.attr('style', '-webkit-transform: translateX(' + move + 'px);-ms-transform: translateX(' + move + 'px);-moz-transform: translateX(' + move + 'px); transform: translateX(' + move + 'px)');

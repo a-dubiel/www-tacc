@@ -290,7 +290,6 @@
   height:176px;
   background-size:300px 176px;
   margin: 0 auto;
-  .transition(transform 0.3s ease-in-out);
   
   @media (min-width: @screen-sm-min) { 
     width:700px;
@@ -300,11 +299,6 @@
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
     background-image: url('../images/devices@2x.png');
-  }
-
-  &:hover {
-    transform:scale(1.01);
-
   }
   
 }
@@ -759,7 +753,8 @@
 
 .cycle-pager {
   text-align: center;
-  margin:20px 0;
+  margin:20px auto 0;
+  width:100px;
 
   span {
     font-size:45px;

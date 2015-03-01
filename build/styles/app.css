@@ -1,7 +1,7 @@
 /*
  * tacc-website
  * v. 0.0.1
- * Saturday, February 28th, 2015, 2:04:29 PM
+ * Saturday, February 28th, 2015, 11:16:30 PM
  * 
  * 2015 Andrzej Dubiel | http://adubiel.me/
  */
@@ -5785,8 +5785,6 @@ select[multiple].input-lg
     height: 176px;
     margin: 0 auto;
 
-    transition: -webkit-transform .3s ease-in-out;
-    transition:         transform .3s ease-in-out;
     text-indent: -9999px;
 
     background-image: url('../images/devices.png');
@@ -5808,11 +5806,6 @@ select[multiple].input-lg
     {
         background-image: url('../images/devices@2x.png');
     }
-}
-.watch-video:hover
-{
-    -webkit-transform: scale(1.01);
-            transform: scale(1.01);
 }
 .product
 {
@@ -6412,7 +6405,8 @@ select[multiple].input-lg
 }
 .cycle-pager
 {
-    margin: 20px 0;
+    width: 100px;
+    margin: 20px auto 0;
 
     text-align: center;
 }
