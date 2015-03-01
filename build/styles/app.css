@@ -1,7 +1,7 @@
 /*
  * tacc-website
  * v. 0.0.1
- * Saturday, February 28th, 2015, 11:16:30 PM
+ * Sunday, March 1st, 2015, 2:50:14 PM
  * 
  * 2015 Andrzej Dubiel | http://adubiel.me/
  */
@@ -5447,7 +5447,9 @@ select[multiple].input-lg
 
         color: #fff;
     }
-    .nav.show a:hover
+    .nav.show a:hover,
+    .nav.show a:focus,
+    .nav.show a:active
     {
         text-decoration: none;
     }
@@ -5518,6 +5520,13 @@ select[multiple].input-lg
         text-decoration: none;
 
         color: #35ae68;
+    }
+    .nav a:active,
+    .nav a:focus
+    {
+        text-decoration: none;
+
+        outline: none;
     }
     .nav a.btn-contact
     {
@@ -6405,6 +6414,8 @@ select[multiple].input-lg
 }
 .cycle-pager
 {
+    clear: both;
+
     width: 100px;
     margin: 20px auto 0;
 
@@ -6528,7 +6539,7 @@ select[multiple].input-lg
 .checkbox-list
 {
     width: 200px;
-    margin: 0 auto;
+    margin: 20px auto;
 
     text-align: left;
 }
@@ -6536,7 +6547,7 @@ select[multiple].input-lg
 {
     .checkbox-list
     {
-        width: 400px;
+        width: 410px;
     }
 }
 .checkbox-list .label-checkbox

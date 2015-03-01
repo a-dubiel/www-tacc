@@ -33,5 +33,19 @@ exports.task = {
     src: '**/*',
     dest: '<%= path.build %>', 
     dot: true 
-  }
+  },
+  html: {       
+    expand: true,
+    cwd: '<%= path.source %>/<%= path.views %>',
+    src: '**/*.html',
+    dest: '<%= path.build %>', 
+    dot: true 
+  },
+  scripts: {
+   expand: true,
+   cwd: '<%= path.source %>/<%= path.scripts %>',
+   src: '**/*',
+   dest: '<%= path.build %>/<%= path.scripts %>', 
+   dot: true 
+ }
 };

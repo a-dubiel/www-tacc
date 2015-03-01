@@ -4,7 +4,7 @@ exports.task = {
   },
   scripts: {
     files: '<%= path.source %>/<%= path.scripts %>/**/*',
-    tasks: ['scripts'],
+    tasks: ['copy:scripts'],
     options: {
       spawn: false,
     }
@@ -25,7 +25,7 @@ exports.task = {
   },
   html:{
     files: '<%= path.source %>/<%= path.views %>/**/*.html',
-    tasks: 'htmlmin',
+    tasks: 'copy:html',
     options: {
       spawn: false
     }

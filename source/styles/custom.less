@@ -41,7 +41,9 @@
         font-weight: 700;
         line-height:1.1;
 
-        &:hover {
+        &:hover,
+        &:focus,
+        &:active {
           text-decoration: none;
         }
       }
@@ -95,6 +97,12 @@
     &:hover {
       color: @brand-primary;
       text-decoration: none;
+    }
+
+    &:active,
+    &:focus {
+      text-decoration: none;
+      outline:none;
     }
 
     &.btn-contact {
@@ -755,6 +763,7 @@
   text-align: center;
   margin:20px auto 0;
   width:100px;
+  clear:both;
 
   span {
     font-size:45px;
@@ -811,37 +820,37 @@
 
 .checkbox-list {
   width:200px;
-  margin:0 auto;
+  margin:20px auto;
   text-align: left;
   @media (min-width: @screen-sm-min) { 
-   width:400px;
- }
-
- .label-checkbox {
-  display:inline-block;
-  cursor: pointer;
-  width:200px;
-  color: #fff;
-  font-weight: 300;
-  position: relative;
-  margin: 0 0 10px 0;
-  @media (min-width: @screen-sm-min) { 
-   width:200px;
- }
-
- .fa {         
-  background: darken(@brand-primary,15%);
-  line-height: 15px;
-  text-align: center;
-  width: 15px; height: 15px;
-  border-radius:3px;
-  color: darken(@brand-primary,15%);
-
-  &.fa-times:before {
-    transform: scale(0);
-    .transition(all 0.3s ease-in-out);
+    width:410px;
   }
-}
+
+  .label-checkbox {
+    display:inline-block;
+    cursor: pointer;
+    width:200px;
+    color: #fff;
+    font-weight: 300;
+    position: relative;
+    margin: 0 0 10px 0;
+    @media (min-width: @screen-sm-min) { 
+     width:200px;
+   }
+
+   .fa {         
+    background: darken(@brand-primary,15%);
+    line-height: 15px;
+    text-align: center;
+    width: 15px; height: 15px;
+    border-radius:3px;
+    color: darken(@brand-primary,15%);
+
+    &.fa-times:before {
+      transform: scale(0);
+      .transition(all 0.3s ease-in-out);
+    }
+  }
 }
 
 input:checked + label {

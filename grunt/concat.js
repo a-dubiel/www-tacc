@@ -7,7 +7,7 @@ exports.task = {
       banner: '<%= banner.exapanded %>'
     },
     files: {
-      '<%= path.build %>/<%= path.scripts %>/app.js': '<%= path.source %>/<%= path.scripts %>/*.js',
+      '<%= path.build %>/<%= path.scripts %>/tacc.js': '<%= path.source %>/<%= path.scripts %>/*.js',
     }
   }
 };
