@@ -1,4 +1,4 @@
-define(['jquery', 'jquery.cycle2', 'skrollr'], function($, cycle, skrollr) {
+define(['jquery','jquery.cycle2', 'skrollr', 'async!http://maps.google.com/maps/api/js?sensor=false'], function($, cycle, skrollr) {
 
   var tacc;
   var Tacc = Tacc || {};
@@ -7,6 +7,7 @@ define(['jquery', 'jquery.cycle2', 'skrollr'], function($, cycle, skrollr) {
 
     tacc = this; 
 
+    tacc.loaded();
     tacc.cache();
     tacc.bind();
     tacc.animatePhones();
@@ -14,6 +15,10 @@ define(['jquery', 'jquery.cycle2', 'skrollr'], function($, cycle, skrollr) {
     tacc.showMap();
 
     }; // init() 
+
+    Tacc.loaded = function () {
+      $('body').removeClass('loading').addClass('loaded');
+    }
 
     Tacc.cache = function () {
 
@@ -38,18 +43,31 @@ define(['jquery', 'jquery.cycle2', 'skrollr'], function($, cycle, skrollr) {
         tacc.$nav.toggleClass('show');
       });
 
-      tacc.$doc.on('touchstart mouseenter', '[data-timeline]', function(){
+      tacc.$doc.on('touchstart mousedown', '[data-timeline]', function(){
         tacc.animateTimeline($(this).data('timeline')); 
       });
 
-      tacc.$doc.on('touchend mouseleave', '[data-timeline]', function(){
+      tacc.$doc.on('touchend mouseup', '[data-timeline]', function(){
        tacc.animateTimeline(false); 
      });
 
-      tacc.$doc.on('click', 'nav a, .hero a', function(e){
+      tacc.$doc.on('touchstart touchend', '.timeline-item, .client', function(e){
+        e.preventDefault();
+        $(this).toggleClass('hover');
+      });
+
+      tacc.$doc.on('click', 'nav a', function(e){
         e.preventDefault(); 
         tacc.$navTrigger.toggleClass('active');
         tacc.$nav.toggleClass('show');
+        var target = $(this).attr('href'); 
+        tacc.$body.stop().animate({ scrollTop: $(target).offset().top}, 500);
+      });
+
+      tacc.$doc.on('click', '.hero a', function(e){ 
+        e.preventDefault(); 
+        tacc.$navTrigger.removeClass('active');
+        tacc.$nav.removeClass('show');
         var target = $(this).attr('href'); 
         tacc.$body.stop().animate({ scrollTop: $(target).offset().top}, 500);
       });
@@ -126,15 +144,16 @@ define(['jquery', 'jquery.cycle2', 'skrollr'], function($, cycle, skrollr) {
 
     Tacc.animatePhones = function () {
 
-      var s = skrollr.init({forceHeight: false});
+      if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+        var s = skrollr.init({forceHeight: false});
+      }
+
+      
 
     }; //animatePhones()
 
     Tacc.showMap = function () {
 
-      google.maps.event.addDomListener(window, 'load', initMap);
-
-      function initMap() {
         // Basic options for a simple Google Map
         // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
         var mapOptions = {
@@ -169,7 +188,6 @@ define(['jquery', 'jquery.cycle2', 'skrollr'], function($, cycle, skrollr) {
           icon: image
         });
 
-      }
 
     }; // showMap() 
 

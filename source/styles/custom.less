@@ -2,6 +2,104 @@
  * Main Nav
  */
 
+
+
+ .loader {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:1;
+  background: #fff;
+  z-index:999;
+  .transition(all 0.3s linear);
+
+}
+
+.loader-logo {
+  position:absolute;
+  width: 100px;
+  height: 150px;
+  margin: auto;
+  top: 0;
+  bottom:0;
+  left:0;
+  right:0;
+  line-height:100px;
+  text-align:center;
+
+  .logo img {
+    animation: bounce 1s infinite;
+    width:100px;
+  }
+
+  .shadow {
+    width: 80px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 30px auto 0;
+    box-shadow: 0 30px 20px rgba(0,0,0,.15);
+    animation: bounceshadow 1s infinite;
+  }
+}
+
+.loading {
+  .loader {
+    opacity:1;
+  }
+
+  .header, .main {
+    visibility: hidden;
+  }
+}
+
+.loaded {
+  .loader {
+    opacity:0;
+    z-index:0;
+    visibility: hidden;
+  }
+
+  .header, .main {
+    visibility: visible;
+  }
+}
+
+
+
+
+
+@keyframes bounceshadow {
+  0%, 20%, 50%, 80%, 100% {
+    width:80px;
+  }
+  40% {
+    width:40px;
+  }
+  60% {
+   width:60px;
+ }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-50px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+
+
+/* 
+ * Main Nav
+ */
+
  .logo h1 {
   margin:10px 0 0 0;
   padding:0;
@@ -12,7 +110,7 @@
 }
 
 .main {
- overflow-x:hidden;
+ overflow-x:hidden; 
 }
 
 .nav {
@@ -26,7 +124,7 @@
       width:100%;
       height:100%;
       background: rgba(38,166,91,0.9); 
-      z-index: 1;
+      z-index: 888;
       backface-visibility: hidden;
 
 
@@ -123,7 +221,7 @@
   position: fixed;
   top:5px;
   right:20px;
-  z-index:2;
+  z-index:999;
   @media (min-width: @screen-sm-min) {
     display:none;
   }
@@ -387,6 +485,11 @@
   @media (min-width: @screen-sm-min) { 
     cursor: help;
     opacity:0.5;
+
+    .client-tooltip {
+      opacity:0;
+      .transition(all 0.2s ease-in);
+    }
     
     &:hover {
       overflow:visible;
@@ -404,6 +507,8 @@
   }
 }
 
+
+
 .client-tooltip {
   background-color:@brand-primary;
   width:340px;
@@ -414,8 +519,7 @@
   position: absolute;
   bottom:140px;
   left:-95px;
-  opacity:0;
-  .transition(all 0.2s ease-in);
+  opacity: 0;
   transform: translateY(-20px);
   z-index:1;
 
@@ -588,7 +692,6 @@
   transform:translateX(0px);
 }
 
-
 .timeline-item {
   position: relative;
   display: table-cell;
@@ -596,25 +699,14 @@
   width:150px;
   height:90px;
   overflow:hidden;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;  
 
   &:hover,
   &:active,
   &:focus {
     text-decoration: none;
     outline:0;
-  }
-
-  &:hover {
-    overflow:visible;
-    .dot {
-      background: @brand-primary;
-      position: relative;
-    }
-
-    .timeline-tooltip {
-      opacity:1;
-      transform: translateY(0px);
-    }
   }
 
   .dot {
@@ -647,7 +739,6 @@
   background-color:@brand-primary;
   width:220px;
   height:auto;
-  display:block;
   text-align: left;
   color:#fff;
   padding:20px;
@@ -655,9 +746,7 @@
   bottom:120px;
   left:50%;
   margin-left:-110px;
-  opacity:0;
   transform: translateY(-20px);
-  .transition(all 0.2s ease-in);
   z-index:1;
   direction:ltr;
 
@@ -711,6 +800,50 @@
     text-decoration: none;
     outline:0 !important;
   }
+}
+
+.tacc-no-touch {
+  .timeline-item {
+
+    .timeline-tooltip {
+      opacity:0;
+      .transition(all 0.2s ease-in-out);
+    }
+    
+    &:hover {
+      overflow:visible;
+      .dot {
+        background: @brand-primary;
+        position: relative;
+      }
+
+      .timeline-tooltip {
+        opacity:1;
+        visibility: visible;
+        transform: translateY(0px);
+      }
+    }
+  }  
+}
+
+.tacc-touch {
+  .timeline-item {
+
+    &.hover {
+      overflow:visible;
+
+      .dot {
+        background: @brand-primary;
+        position: relative;
+      }
+
+      .timeline-tooltip {
+        display:block;
+        visibility: visible;
+        transform: translateY(0px); 
+      }
+    }
+  }  
 }
 
 /* 
@@ -784,6 +917,13 @@
   background: @brand-primary;
   overflow:hidden;
   .clearfix();
+  @media (max-width: @screen-sm-min) { 
+    padding-bottom:20px;
+
+    .btn-info-inverted {
+      margin-bottom:10px;
+    }
+  }
 
   .section-intro {
     margin-bottom:20px;
