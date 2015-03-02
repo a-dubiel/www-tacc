@@ -197,8 +197,17 @@ define(['jquery','jquery.cycle2', 'skrollr', 'async!http://maps.google.com/maps/
 
   // helper functions
   function moveTimeline(direction) {
+    var el = document.querySelector('.timeline-wrap');
+    var st = window.getComputedStyle(el, null);
+    var tr = st.getPropertyValue("-webkit-transform") ||
+    st.getPropertyValue("-moz-transform") ||
+    st.getPropertyValue("-ms-transform") ||
+    st.getPropertyValue("-o-transform") ||
+    st.getPropertyValue("transform") ||
+    'FAIL';
 
-    var matrix = matrixToArray(tacc.$timeline.css('transform')) ;
+    var matrix = matrixToArray(tr) ;
+
     var current = parseInt(matrix[4]);
     var move = (direction === 'future') ? current -= 100 : current += 100;
 
