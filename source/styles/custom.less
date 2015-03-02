@@ -328,12 +328,12 @@
     padding:0 20px;
     margin-bottom:20px;
     @media (min-width: @screen-sm-min) {
-      font-size:24px;
+      font-size:22px;
       padding:0 100px;
     }
 
     @media (min-width: @screen-md-min) {
-      padding:0 250px;
+      padding:0 200px;
     }
 
   }
@@ -899,9 +899,10 @@
   clear:both;
 
   span {
-    font-size:45px;
+    font-size:60px;
     color: darken(@section-gray-bg,15%);
     cursor:pointer;
+    margin-right:5px;
   }
 
   .cycle-pager-active {
@@ -1078,6 +1079,57 @@ input[type="checkbox"] {
       color:@text-color;
     }
   }
+}
+
+/* 
+ * Video
+ */
+
+ .video-overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:999;
+  opacity:1;
+  visibility: visible;
+  background-color: rgba(0,0,0,0.9);
+  .transition(all 0.3s ease-in-out);
+
+
+  &.hidden {
+    visibility: hidden;
+    background-color: rgba(0,0,0,0.0);
+    z-index:0;
+    opacity:0;
+
+
+    .video-content {
+      transform: translateY(-50px);
+    }
+  }
+}
+
+.video-content {
+  width:500px;
+  height:281px;
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  margin:auto;
+  transform: translateY(0);
+  .transition(transform 0.3s ease-in-out);
+
+}
+
+.close-video {
+  position: absolute;
+  top:-30px;
+  right:0;
+  font-size:20px;
 }
 
 

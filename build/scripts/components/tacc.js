@@ -1,4 +1,4 @@
-define(['jquery','jquery.cycle2', 'skrollr', 'async!http://maps.google.com/maps/api/js?sensor=false'], function($, cycle, skrollr) {
+define(['jquery','jquery.cycle2', 'skrollr', 'vimeo', 'async!http://maps.google.com/maps/api/js?sensor=false'], function($, cycle, skrollr) {
 
   var tacc;
   var Tacc = Tacc || {};
@@ -30,32 +30,37 @@ define(['jquery','jquery.cycle2', 'skrollr', 'async!http://maps.google.com/maps/
       tacc.$contactForm = $('.form-contact');
       tacc.$contactSection = $('.contact-items');
       tacc.$teamSection = $('.cycle-team');
+      tacc.$video = $('.video-overlay');
       tacc.$body = $('html, body');
       tacc.$timelineInt;
 
     }; // cache()
 
     Tacc.bind = function () {
-
+      // mobile nav
       tacc.$doc.on('click', '.nav-mobile-trigger', function (e) {
         e.preventDefault();
         tacc.$navTrigger.toggleClass('active');
         tacc.$nav.toggleClass('show');
       });
-
+      
+      // timeline go
       tacc.$doc.on('touchstart mousedown', '[data-timeline]', function(){
         tacc.animateTimeline($(this).data('timeline')); 
       });
-
+      
+      // timeline stop
       tacc.$doc.on('touchend mouseup', '[data-timeline]', function(){
        tacc.animateTimeline(false); 
      });
-
-      tacc.$doc.on('touchstart touchend', '.timeline-item, .client', function(e){
+      
+      // mobile timeline
+      tacc.$doc.on('touchstart touchend', '.timeline-item', function(e){
         e.preventDefault();
         $(this).toggleClass('hover');
       });
-
+      
+      // main nav behavior
       tacc.$doc.on('click', 'nav a', function(e){
         e.preventDefault(); 
         tacc.$navTrigger.toggleClass('active');
@@ -63,15 +68,42 @@ define(['jquery','jquery.cycle2', 'skrollr', 'async!http://maps.google.com/maps/
         var target = $(this).attr('href'); 
         tacc.$body.stop().animate({ scrollTop: $(target).offset().top}, 500);
       });
-
-      tacc.$doc.on('click', '.hero a', function(e){ 
+      
+      // learn more on hero
+      tacc.$doc.on('click', '.js-learn-more', function(e){ 
         e.preventDefault(); 
         tacc.$navTrigger.removeClass('active');
         tacc.$nav.removeClass('show');
         var target = $(this).attr('href'); 
         tacc.$body.stop().animate({ scrollTop: $(target).offset().top}, 500);
       });
+      
+      // profiles nav
+      tacc.$doc.on('click', '.cycle-pager span', function(){
+        tacc.$body.stop().animate({ scrollTop: $('#team').offset().top}, 500);
+      });
+      
+      // watch video
+      tacc.$doc.on('click', '.watch-video, .js-watch-video', function(){
+       tacc.$video.removeClass('hidden');
+       tacc.videoHandler('play');
+     });
 
+      // close video
+      tacc.$doc.on('click', '.close-video', function(e){    
+       tacc.$video.addClass('hidden');
+       tacc.videoHandler('unload');
+     });
+      
+      //close video on esc
+      tacc.$doc.on('keydown', function(e){
+        if (e.keyCode == 27) {    
+         tacc.$video.addClass('hidden');
+         tacc.videoHandler('unload');
+       }
+     });
+
+      //form
       tacc.$doc.on('submit', '.form-contact', function(e){
         //prevent submit
         e.preventDefault();
@@ -111,6 +143,12 @@ define(['jquery','jquery.cycle2', 'skrollr', 'async!http://maps.google.com/maps/
 
     }; //bind();
 
+    Tacc.videoHandler = function(option) {
+      var iframe = document.getElementById('video');
+      var player = Froogaloop(iframe);
+      player.api(option);
+    }
+
 
     Tacc.animateTimeline = function (direction) {
       if(direction) {
@@ -138,7 +176,8 @@ define(['jquery','jquery.cycle2', 'skrollr', 'async!http://maps.google.com/maps/
         autoHeight: 'container',
         slides: '.slide',
         pager: '.cycle-pager',
-        log: false
+        log: false,
+        swipe: true
       });
     };
 
