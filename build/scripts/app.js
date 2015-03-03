@@ -16,6 +16,9 @@ requirejs.config({
     },
     'jquery.cycle2': {
       'deps': ['jquery', 'jquery.cycle2.swipe']
+    },
+    'jquery.cycle2.swipe': {
+      'deps': ['jquery']
     }
   }
 });

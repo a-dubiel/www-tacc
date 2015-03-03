@@ -90,7 +90,7 @@ define(['jquery','jquery.cycle2', 'skrollr', 'vimeo', 'async!http://maps.google.
      });
 
       // close video
-      tacc.$doc.on('click', '.close-video', function(e){    
+      tacc.$doc.on('click touchstart', '.close-video, .video-overlay', function(e){    
        tacc.$video.addClass('hidden');
        tacc.videoHandler('unload');
      });
