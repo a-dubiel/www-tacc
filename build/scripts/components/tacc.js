@@ -85,20 +85,20 @@ define(['jquery','jquery.cycle2', 'skrollr', 'vimeo', 'async!http://maps.google.
       
       // watch video
       tacc.$doc.on('click', '.watch-video, .js-watch-video', function(){
-       tacc.$video.removeClass('hidden');
+       tacc.$video.removeClass('hide-it');
        tacc.videoHandler('play');
      });
 
       // close video
       tacc.$doc.on('click touchstart', '.close-video, .video-overlay', function(e){    
-       tacc.$video.addClass('hidden');
+       tacc.$video.addClass('hide-it');
        tacc.videoHandler('unload');
      });
       
       //close video on esc
       tacc.$doc.on('keydown', function(e){
         if (e.keyCode == 27) {    
-         tacc.$video.addClass('hidden');
+         tacc.$video.addClass('hide-it');
          tacc.videoHandler('unload');
        }
      });

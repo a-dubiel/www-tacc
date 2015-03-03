@@ -1094,15 +1094,10 @@ input[type="checkbox"] {
   background-color: rgba(0,0,0,0.9);
   .transition(all 0.3s ease-in-out);
 
-
-  &.hidden {
-    visibility: hidden;
+  &.hide-it {
+    visibility: hidden !important;
     background-color: rgba(0,0,0,0.0);
     z-index:0;
-
-    .video-content {
-      transform: translateY(-50px);
-    }
   }
 }
 
@@ -1115,9 +1110,6 @@ input[type="checkbox"] {
   bottom:0;
   right:0;
   margin:auto;
-  transform: translateY(0);
-  .transition(transform 0.3s ease-in-out);
-
 }
 
 .close-video {
