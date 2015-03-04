@@ -1,7 +1,7 @@
 /*
  * tacc-website
  * v. 0.0.1
- * Monday, March 2nd, 2015, 9:31:14 PM
+ * Tuesday, March 3rd, 2015, 8:45:40 PM
  * 
  * 2015 Andrzej Dubiel | http://adubiel.me/
  */
@@ -6903,6 +6903,10 @@ select[multiple].input-lg
     visibility: hidden !important;
 
     background-color: rgba(0, 0, 0, 0);
+}
+.video-overlay.hide-it iframe
+{
+    display: none !important;
 }
 .video-content
 {
