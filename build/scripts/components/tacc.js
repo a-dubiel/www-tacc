@@ -84,15 +84,17 @@ define(['jquery','jquery.cycle2', 'skrollr', 'vimeo', 'async!http://maps.google.
       });
       
       // watch video
-      tacc.$doc.on('click', '.watch-video, .js-watch-video', function(){
+      tacc.$doc.on('click', '.watch-video, .js-watch-video', function(e){
+       e.preventDefault();
        tacc.$video.removeClass('hide-it');
        tacc.videoHandler('play');
      });
 
       // close video
-      tacc.$doc.on('click touchstart', '.close-video, .video-overlay', function(e){    
+      tacc.$doc.on('click touchstart', '.close-video, .video-overlay', function(e){
+       e.preventDefault();    
        tacc.$video.addClass('hide-it');
-       tacc.videoHandler('unload');
+       tacc.videoHandler('pause');
      });
       
       //close video on esc
@@ -179,16 +181,12 @@ define(['jquery','jquery.cycle2', 'skrollr', 'vimeo', 'async!http://maps.google.
         log: false,
         swipe: true
       });
-    };
+    }; //slideshows()
 
     Tacc.animatePhones = function () {
-
       if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
         var s = skrollr.init({forceHeight: false});
       }
-
-      
-
     }; //animatePhones()
 
     Tacc.showMap = function () {
@@ -238,11 +236,11 @@ define(['jquery','jquery.cycle2', 'skrollr', 'vimeo', 'async!http://maps.google.
   function moveTimeline(direction) {
     var el = document.querySelector('.timeline-wrap');
     var st = window.getComputedStyle(el, null);
-    var tr = st.getPropertyValue("-webkit-transform") ||
-    st.getPropertyValue("-moz-transform") ||
-    st.getPropertyValue("-ms-transform") ||
-    st.getPropertyValue("-o-transform") ||
-    st.getPropertyValue("transform") ||
+    var tr = st.getPropertyValue('-webkit-transform') ||
+    st.getPropertyValue('-moz-transform') ||
+    st.getPropertyValue('-ms-transform') ||
+    st.getPropertyValue('-o-transform') ||
+    st.getPropertyValue('transform') ||
     'FAIL';
 
     var matrix = matrixToArray(tr) ;
