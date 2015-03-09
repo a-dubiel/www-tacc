@@ -71,11 +71,11 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 /* Tasks */
 grunt.registerTask('default', ['dev', 'build']);
 grunt.registerTask('dev', ['connect', 'watch']);
-grunt.registerTask('build', ['buildbower', 'styles', 'scripts', 'images', 'misc']);
+grunt.registerTask('build', ['styles', 'scripts', 'images', 'misc']);
 grunt.registerTask('styles', ['less', 'autoprefixer', 'csslint', 'csscomb', 'csso']);
-grunt.registerTask('scripts', ['concat', 'uglify']);
+grunt.registerTask('scripts', ['copy:scripts', 'uglify']);
 grunt.registerTask('images', ['imagemin', 'svgmin']);
-grunt.registerTask('buildbower', ['bower', 'copy:bowerjs', 'uglify']);
+//grunt.registerTask('buildbower', ['bower', 'copy:bowerjs', 'uglify']);
 grunt.registerTask('misc', ['htmlmin', 'copy:misc']);  
 
 };
