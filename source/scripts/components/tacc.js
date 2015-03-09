@@ -129,7 +129,7 @@ define(['jquery','jquery.cycle2', 'skrollr', 'vimeo', 'async!http://maps.google.
           // submit it
           $.ajax({
             type: 'POST',
-            url: '', //set the handler here
+            url: 'http://dev.affective.io/notification/submit_inquiry', //set the handler here
             data: formData,
             success: function(data) {
               // go to thank you on success
